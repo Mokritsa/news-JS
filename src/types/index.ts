@@ -17,4 +17,13 @@ export interface IArticleObject extends ISource{
 export interface IDataObject{
   sources: ISource[];
   articles: IArticleObject[];
-};
+}
+
+export enum StatusErrors { 
+  StatusError1 = 401, 
+  StatusError2 = 404 
+}
+
+export type LoaderOptions = {
+  [key: string]: string
+}
