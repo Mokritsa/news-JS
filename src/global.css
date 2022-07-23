@@ -5,19 +5,27 @@ body {
 }
 
 header {
+    position: relative;
     padding: 10px 30px;
 }
 
 header h1 {
     font-size: 40px;
     font-weight: 800;
+    text-align: center;
 }
+header .language {
+    position: absolute;
+    right: 10%;
+    top: 50%
+}
+
 
 footer {
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 footer .copyright {
     font-size: 14px;
@@ -33,3 +41,7 @@ footer .copyright a:hover {
 footer .copyright:before {
     content: '©';
 }
+.rsschool {
+    width: 80px;
+}
+

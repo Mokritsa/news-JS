@@ -6,8 +6,13 @@ class Sources {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector<HTMLTemplateElement>('#sourceItemTemp');
         if (!sourceItemTemp) throw new Error('На странице отсутствует #sourceItemTemp');
+        
+        const sourceLanguage = document.querySelector('#language') as HTMLSelectElement;
+        if(!sourceLanguage) throw new Error('Не выбран язык');
+        const languageFilter = data.filter((item) => item.language === sourceLanguage.value); // Фильтрация по языку
 
-        data.forEach((item) => {
+        languageFilter.forEach((item) => {
+            //console.log(item);
             const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLElement;
             
             const sourceName = sourceClone.querySelector('.source__item-name');
@@ -20,6 +25,7 @@ class Sources {
 
             fragment.append(sourceClone);
         });
+
         const sources = document.querySelector('.sources');
         if(!sources) throw new Error('Отсутствует .sources')
         sources.append(fragment);

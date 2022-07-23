@@ -1,6 +1,11 @@
 export interface ISource {
   id: string | null;
   name: string;
+  category: string;
+  country: string;
+  description: string;
+  language: string;
+  url: string;
 }
 
 export interface IArticleObject extends ISource{
