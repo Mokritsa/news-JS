@@ -1,3 +1,4 @@
+
 import { LoaderOptions, StatusErrors} from '../../types/index'
 const {StatusError1, StatusError2} = StatusErrors;
 
@@ -12,7 +13,7 @@ class Loader {
     getResp<T>(
         { endpoint, options = {} }: {endpoint: string, options?: object},
         callback = (data: T) => {
-            console.error('No callback for GET response');
+            console.error('No callback for GET response', data);
         }
     ) {
         this.load('GET', endpoint, callback, options);
