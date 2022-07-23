@@ -1,5 +1,4 @@
-import { LoaderOptions} from '../../types/index'
-import { StatusErrors } from '../../types/index'
+import { IDataObject, LoaderOptions, StatusErrors} from '../../types/index'
 const {StatusError1, StatusError2} = StatusErrors;
 
 class Loader {
@@ -40,7 +39,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: Function, options = {}) {
+    load(method: string, endpoint: string, callback: (data: IDataObject) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
