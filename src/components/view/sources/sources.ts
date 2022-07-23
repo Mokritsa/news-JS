@@ -14,9 +14,9 @@ class Sources {
             if(!sourceName) throw new Error('Отсутствует .source__item-name');
             sourceName.textContent = item.name;
             
-            const sourceId = sourceClone.querySelector('.source__item');
+            const sourceId = sourceClone.querySelector<HTMLDivElement>('.source__item');
             if(!sourceId) throw new Error('Отсутствует .source__item');
-            sourceId.setAttribute('data-source-id', item.id!); //Восклицательный знак — это ненулевой оператор утверждения в TypeScript.
+            sourceId.setAttribute('data-source-id', item.id ?? 'Отсутствует .source__id'); //item.id! Восклицательный знак — это ненулевой оператор утверждения в TypeScript.
 
             fragment.append(sourceClone);
         });

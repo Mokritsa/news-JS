@@ -1,3 +1,8 @@
+export interface ISource {
+  id: string | null;
+  name: string;
+}
+
 export interface IArticleObject extends ISource{
   author: string;
   title: string;
@@ -8,7 +13,8 @@ export interface IArticleObject extends ISource{
   content: string;
   source: ISource;
 }
-export interface ISource {
-  id: string | null;
-  name: string;
-}
+
+export interface IDataObject{
+  sources: ISource[];
+  articles: IArticleObject[];
+};
