@@ -1,4 +1,4 @@
-import { IDataObject, LoaderOptions, StatusErrors} from '../../types/index'
+import { LoaderOptions, StatusErrors} from '../../types/index'
 const {StatusError1, StatusError2} = StatusErrors;
 
 class Loader {
@@ -9,9 +9,9 @@ class Loader {
         this.options = options;
     }
 
-    getResp(
+    getResp<T>(
         { endpoint, options = {} }: {endpoint: string, options: object},
-        callback = () => {
+        callback = (data: T) => {
             console.error('No callback for GET response');
         }
     ) {
@@ -39,7 +39,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: (data: IDataObject) => void, options = {}) {
+    load<T>(method: string, endpoint: string, callback: (data: T) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
